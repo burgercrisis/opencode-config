@@ -1,0 +1,39 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "one-dark",
+  "mcp": {
+    "windsurf-project-2": {
+      "type": "local",
+      "command": [
+        "node",
+        "E:/code/CascadeProjects/windsurf-project-2-development/dist/server.js"
+      ],
+      "environment": {
+        "NODE_ENV": "development",
+        "MCP_HUB_ADMIN_TOKEN": "dev-admin-token",
+        "MCP_HUB_GIT_ROOTS": "E:/code",
+        "MCP_HUB_PROJECT_ROOTS": "E:/code",
+        "MCP_HUB_CODEMOD_ROOTS": "E:\\code\\CascadeProjects\\windsurf-project-2-development",
+        "MCP_HUB_VERIFY_ROOTS": "E:/code/CascadeProjects/windsurf-project-2-development",
+        "MCP_HUB_REQUIRE_TASK_APPROVAL": "0",
+        "MCP_HUB_DANGEROUS_TASK_GATING_BYPASS": "1"
+      },
+      "enabled": true
+    }
+  },
+  "tools": {
+    "bash": true,
+    "edit": true,
+    "write": true,
+    "read": true,
+    "grep": true,
+    "glob": true,
+    "list": true,
+    "patch": true,
+    "skill": true,
+    "todowrite": true,
+    "todoread": true,
+    "webfetch": true,
+    "lsp": true
+  }
+}
