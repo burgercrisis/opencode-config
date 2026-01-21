@@ -38,9 +38,9 @@ graph TD
                 end
             subgraph devplans[devplans/ <= This is for your master, only touch with permission] 
             end
-        subgraph temp[tmp/] 
+        subgraph temp[tmp/ <= Delete tmp files when done] 
         end
-        subgraph tools[tools/] 
+        subgraph tools[tools/ <= Keep organized] 
         end
     end
 ```
