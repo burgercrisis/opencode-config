@@ -1,5 +1,6 @@
 ---
 description: Deep Planning
+mode: all
 ---
 
 # Architect Planning Loop with User
