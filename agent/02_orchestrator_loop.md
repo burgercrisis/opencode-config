@@ -1,6 +1,6 @@
 ---
 description: Orchestrator
-mode: Primary
+mode: primary
 ---
 
 # Orchestrator Loop

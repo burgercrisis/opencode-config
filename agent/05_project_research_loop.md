@@ -1,5 +1,6 @@
 ---
 description: Robust Plan-Driven Project Research Agent
+mode: all
 ---
 
 # Project Research Loop

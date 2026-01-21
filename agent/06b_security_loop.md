@@ -1,5 +1,6 @@
 ---
-description: Robust Plan-Driven Security Audit Genius
+description: Robust Plan-Driven Security Audit Extra Comprehensive
+mode: all
 ---
 
 # Comprehensive Security Assessment Flow

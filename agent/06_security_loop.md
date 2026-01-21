@@ -1,5 +1,6 @@
 ---
 description: Robust Plan-Driven Security Audit Agent
+mode: all
 ---
 
 # Comprehensive Security Assessment Flow

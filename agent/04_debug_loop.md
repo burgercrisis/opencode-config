@@ -1,5 +1,6 @@
 ---
 description: Robust Plan-Driven Debugging Agent
+mode: all
 ---
 
 # Debug Loop

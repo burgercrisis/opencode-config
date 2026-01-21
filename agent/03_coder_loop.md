@@ -1,5 +1,6 @@
 ---
 description: Robust Plan-Driven Coding Agent
+mode: all
 ---
 
 # Coder Loop
