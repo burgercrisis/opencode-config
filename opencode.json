@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "plugin": ["opencode-antigravity-auth@latest"],
   "theme": "one-dark",
   "mcp": {
     "windsurf-project-2": {
@@ -13,12 +14,118 @@
         "MCP_HUB_ADMIN_TOKEN": "dev-admin-token",
         "MCP_HUB_GIT_ROOTS": "E:/code",
         "MCP_HUB_PROJECT_ROOTS": "E:/code",
-        "MCP_HUB_CODEMOD_ROOTS": "E:\\code\\CascadeProjects\\windsurf-project-2-development",
+        "MCP_HUB_CODEMOD_ROOTS": "E:/code",
+        "MCP_HUB_DOTNET_ROOTS": "E:/code",
         "MCP_HUB_VERIFY_ROOTS": "E:/code/CascadeProjects/windsurf-project-2-development",
         "MCP_HUB_REQUIRE_TASK_APPROVAL": "0",
         "MCP_HUB_DANGEROUS_TASK_GATING_BYPASS": "1"
       },
       "enabled": true
+    }
+  },
+  "provider": {
+    "my-proxy": {
+      "npm": "@ai-sdk/anthropic",
+        "models": {
+          "gpt-5-low": {"limit": {
+              "context": 360000,
+              "output": 120000
+            }},
+          "gpt-5-medium": {"limit": {
+              "context": 360000,
+              "output": 120000
+            }},
+          "gpt-5-high": {"limit": {
+              "context": 360000,
+              "output": 120000
+            }},
+          "gpt-5.2-latest": {"limit": {
+              "context": 360000,
+              "output": 120000
+            }},
+           "gpt-5.2-codex-high": {"limit": {
+              "context": 360000,
+              "output": 120000
+            }},
+          "sonnet-4.5": {"limit": {
+              "context": 168000,
+              "output": 40000
+            }},
+          "claude-opus-4.5-thinking": {"limit": {
+              "context": 168000,
+              "output": 40000
+            }}
+      },
+      "options": {
+        "baseURL": "https://flat.oliveowl.xyz/v1",
+        "apiKey": "burgercrisis-burgercrisis"}
+    },
+    "google": {
+      "models": {
+        "antigravity-gemini-3-pro": {
+          "name": "Gemini 3 Pro (Antigravity)",
+          "limit": { "context": 1048576, "output": 65535 },
+          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] },
+          "variants": {
+            "low": { "thinkingLevel": "low" },
+            "high": { "thinkingLevel": "high" }
+          }
+        },
+        "antigravity-gemini-3-flash": {
+          "name": "Gemini 3 Flash (Antigravity)",
+          "limit": { "context": 1048576, "output": 65536 },
+          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] },
+          "variants": {
+            "minimal": { "thinkingLevel": "minimal" },
+            "low": { "thinkingLevel": "low" },
+            "medium": { "thinkingLevel": "medium" },
+            "high": { "thinkingLevel": "high" }
+          }
+        },
+        "antigravity-claude-sonnet-4-5": {
+          "name": "Claude Sonnet 4.5 (Antigravity)",
+          "limit": { "context": 200000, "output": 64000 },
+          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+        },
+        "antigravity-claude-sonnet-4-5-thinking": {
+          "name": "Claude Sonnet 4.5 Thinking (Antigravity)",
+          "limit": { "context": 200000, "output": 64000 },
+          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] },
+          "variants": {
+            "low": { "thinkingConfig": { "thinkingBudget": 8192 } },
+            "max": { "thinkingConfig": { "thinkingBudget": 32768 } }
+          }
+        },
+        "antigravity-claude-opus-4-5-thinking": {
+          "name": "Claude Opus 4.5 Thinking (Antigravity)",
+          "limit": { "context": 200000, "output": 64000 },
+          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] },
+          "variants": {
+            "low": { "thinkingConfig": { "thinkingBudget": 8192 } },
+            "max": { "thinkingConfig": { "thinkingBudget": 32768 } }
+          }
+        },
+        "gemini-2.5-flash": {
+          "name": "Gemini 2.5 Flash (Gemini CLI)",
+          "limit": { "context": 1048576, "output": 65536 },
+          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+        },
+        "gemini-2.5-pro": {
+          "name": "Gemini 2.5 Pro (Gemini CLI)",
+          "limit": { "context": 1048576, "output": 65536 },
+          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+        },
+        "gemini-3-flash-preview": {
+          "name": "Gemini 3 Flash Preview (Gemini CLI)",
+          "limit": { "context": 1048576, "output": 65536 },
+          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+        },
+        "gemini-3-pro-preview": {
+          "name": "Gemini 3 Pro Preview (Gemini CLI)",
+          "limit": { "context": 1048576, "output": 65535 },
+          "modalities": { "input": ["text", "image", "pdf"], "output": ["text"] }
+        }
+      }
     }
   },
   "tools": {
@@ -35,5 +142,17 @@
     "todoread": true,
     "webfetch": true,
     "lsp": true
+  },
+  "permission": {
+    "bash": {
+      "*": "allow",
+      "git reset *": "ask",
+      "git reset --hard *": "ask",
+      "git clean *": "ask",
+      "git push --force *": "ask",
+      "git push -f *": "ask",
+      "git branch -D *": "ask",
+      "git branch --delete --force *": "ask"
+    }
   }
 }
