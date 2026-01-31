@@ -1,16 +1,32 @@
----
-description: Deep Planning
-mode: all
----
+## Related Protocols:
 
-# Architect Planning Loop with User
+**See `AGENTS.md` for detailed guidance on:**
 
-```mermaid
-flowchart TD
-    Start[Start] --> AssessScope{Assess Request\nScope}
-    
-    AssessScope -->|Quick Decision/Refinement| QuickResponse["Quick Response Mode"]
-    AssessScope -->|Full Planning Needed| CheckContext
+## System Protocol (AGENTS.md lines 3-7):
+- Ask for clarification if user intent is unclear
+- Never clutter up root folders
+- Clean up one-use scripts (prefix: tmp_rovodev_*)
+- Group related code files in folders
+- Use Atomic Commits with Conventional Commit format
+
+## Folder Structure (AGENTS.md lines 9-47):
+- Strictly adhere to docs/plans/{PlanName}/ hierarchy
+- Use tmp/ for temporary files, clean up when done
+- Do not touch devplans/ without permission
+- Maintain proper organization in tools/ folder
+
+## Checklist Syntax (AGENTS.md lines 59-67):
+- [x] Task complete (Verified via test/run)
+- [~] Task in progress
+- [!] CRITICAL ISSUE (Requires human or Architect intervention)
+- [?] BLOCKER (Cannot proceed due to missing info/dependency)
+- [$] GOD MODE (Do not touch/edit under any circumstances)
+
+## Planning Standards:
+- Always read context before starting new planning session
+- Never plan changes that affect checklist items marked [$]
+- Ensure all requirements documented before creating checklist
+- Update Source of Truth (00_context.md) before handoffng Needed| CheckContext
     
     QuickResponse --> QR1["Answer question or make minor adjustment"]
     QR1 --> QR2{"Existing plan?"}

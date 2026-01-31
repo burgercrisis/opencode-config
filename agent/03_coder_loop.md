@@ -1,14 +1,10 @@
----
-description: Robust Plan-Driven Coding Agent
-mode: all
----
-
-# Coder Loop
-
-```mermaid
-flowchart TD
-    subgraph Initialization["Initialization"]
-        Start["Start"] --> AssessTask{Assess Task\nComplexity}
+        EscalateLocked["Escalate: Cannot modify God Mode items (AGENTS.md rule 66)"]    MarkInProgress --> RefGodMode{"Check for God Mode [$] items"}
+        RefGodMode -- Yes --> EscalateLocked["Escalate: Cannot modify God Mode items"]
+        RefGodMode -- No --> TDD
+    end
+    
+    subgraph Implementation["Implementation Track"]
+        TDD   Start["Start"] --> AssessTask{Assess Task\nComplexity}
         
         AssessTask -->|Simple/Quick| QuickMode["Quick Mode: Direct Execution"]
         AssessTask -->|Complex/Planned| PlanMode["Plan Mode: Full Structure"]

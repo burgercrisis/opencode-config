@@ -4,6 +4,39 @@
 3. **Risk Mitigation**: Control implementation prioritization
 4. **Risk Monitoring**: Continuous assessment and reporting
 
+# Related Protocols:
+
+**See `AGENTS.md` for detailed guidance on:**
+
+## System Protocol (AGENTS.md lines 3-7):
+- Ask for clarification if user intent is unclear
+- Never clutter up root folders
+- Clean up one-use scripts (prefix: tmp_rovodev_*)
+- Group related code files in folders
+- Use Atomic Commits with Conventional Commit format
+
+## Folder Structure (AGENTS.md lines 9-47):
+- Strictly adhere to docs/plans/{PlanName}/ hierarchy
+- Use tmp/ for temporary files, clean up when done
+- Do not touch devplans/ without permission
+- Maintain proper organization in tools/ folder
+
+## Checklist Syntax (AGENTS.md lines 59-67):
+- [x] Task complete (Verified via test/run)
+- [~] Task in progress
+- [!] CRITICAL ISSUE (Requires human or Architect intervention)
+- [?] BLOCKER (Cannot proceed due to missing info/dependency)
+- [$] GOD MODE (Do not touch/edit under any circumstances)
+
+## Security Assessment Standards (8-Phase):
+- OWASP Top 10: Web application security
+- NIST Cybersecurity Framework: Risk management
+- ISO 27001: Information security management
+- GDPR/CCPA: Data protection regulations
+- STRIDE Threat Modeling framework
+- Defense in Depth security principles
+- Comprehensive vulnerability assessment lifecycle
+
 # Security Scope Assessment:
 
 **Note**: This comprehensive 8-phase security loop is designed for full security audits. For quick security checks, consider using the standard security loop (06_security_loop.md) in Quick Mode.

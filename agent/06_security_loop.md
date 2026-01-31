@@ -197,3 +197,34 @@ flowchart TD
 - `docs/plans/{PlanName}/Reports/01_Master_Log.md` - Append start/completion events
 - `docs/plans/{PlanName}/Reports/{PhaseNumber}_{PhaseName}.md` - Security assessment report
 - `docs/plans/{PlanName}/00_context.md` - Update checkpoint after completion
+
+# Related Protocols:
+
+**See `AGENTS.md` for detailed guidance on:**
+
+## System Protocol (AGENTS.md lines 3-7):
+- Ask for clarification if user intent is unclear
+- Never clutter up root folders
+- Clean up one-use scripts (prefix: tmp_rovodev_*)
+- Group related code files in folders
+- Use Atomic Commits with Conventional Commit format
+
+## Folder Structure (AGENTS.md lines 9-47):
+- Strictly adhere to docs/plans/{PlanName}/ hierarchy
+- Use tmp/ for temporary files, clean up when done
+- Do not touch devplans/ without permission
+- Maintain proper organization in tools/ folder
+
+## Checklist Syntax (AGENTS.md lines 59-67):
+- [x] Task complete (Verified via test/run)
+- [~] Task in progress
+- [!] CRITICAL ISSUE (Requires human or Architect intervention)
+- [?] BLOCKER (Cannot proceed due to missing info/dependency)
+- [$] GOD MODE (Do not touch/edit under any circumstances)
+
+## Security Assessment Standards:
+- OWASP Top 10: Web application security
+- NIST Cybersecurity Framework: Risk management
+- ISO 27001: Information security management
+- GDPR/CCPA: Data protection regulations
+- Risk Management principles: Identification, Analysis, Mitigation, Monitoring

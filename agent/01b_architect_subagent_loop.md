@@ -141,7 +141,9 @@ flowchart TD
 ## System Protocol (AGENTS.md lines 3-7):
 - **Clarification**: If user intent is unclear, use ask_followup_question before proceeding
 - **File Organization**: Never clutter root folders; use `tmp/` for temporary files
+- **Cleanup**: Clean up one-use scripts (prefix: tmp_rovodev_*)
 - **Folder Grouping**: Group related code files in appropriate folders
+- **Commit Standards**: Atomic commits with verbose conventional commit format
 
 ## Folder Structure (AGENTS.md lines 9-47):
 - **Plan Structure**: `docs/plans/{PlanName}/` - strictly adhere when modifying plans
