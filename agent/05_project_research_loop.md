@@ -116,3 +116,33 @@ flowchart TD
 - `docs/plans/{PlanName}/Reports/01_Master_Log.md` - Append completion event
 - `docs/plans/{PlanName}/Reports/{PhaseNumber}_{PhaseName}.md` - Phase completion report
 - `docs/plans/{PlanName}/00_context.md` - Update checkpoint after completion
+
+# Related Protocols:
+
+**See `AGENTS.md` for detailed guidance on:**
+
+## System Protocol (AGENTS.md lines 3-7):
+- Ask for clarification if user intent is unclear
+- Never clutter root folders
+- Clean up one-use scripts (prefix: tmp_rovodev_*)
+- Group related code files in folders
+- Use Atomic Commits with Conventional Commit format
+
+## Folder Structure (AGENTS.md lines 9-47):
+- Strictly adhere to docs/plans/{PlanName}/ hierarchy
+- Use tmp/ for temporary files, clean up when done
+- Do not touch devplans/ without permission
+- Maintain proper organization in tools/ folder
+
+## Checklist Syntax (AGENTS.md lines 59-67):
+- [x] Task complete (Verified via test/run)
+- [~] Task in progress
+- [!] CRITICAL ISSUE (Requires human or Architect intervention)
+- [?] BLOCKER (Cannot proceed due to missing info/dependency)
+- [$] GOD MODE (Do not touch/edit under any circumstances)
+
+## Research Standards:
+- IEEE Style Citations required for external research (Plan Mode)
+- Cross-reference at least 2 independent sources for critical claims
+- Verify findings against actual codebase when applicable
+- Document all "Unknowns" or risks identified
