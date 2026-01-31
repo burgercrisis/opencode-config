@@ -105,3 +105,40 @@ flowchart TD
 - `docs/plans/{PlanName}/01_Master Plan/11_Unit_Codemap_*.mmd` - Component Details (as needed)
 - `docs/plans/{PlanName}/Task Plans/{PhaseNumber}_{PhaseName}.md` - Implementation Steps per phase
 - `docs/plans/{PlanName}/Reports/01_Master_Log.md` - Activity Audit Trail (initialized)
+
+# Related Protocols:
+
+**See `AGENTS.md` for detailed guidance on:**
+
+## System Protocol (AGENTS.md lines 3-7):
+- **Clarification**: If user intent is unclear, use ask_followup_question before proceeding
+- **File Organization**: Never clutter root folders; use `tmp/` for temporary files
+- **Folder Grouping**: Group related code files in appropriate folders
+- **Commit Standards**: Atomic commits with verbose conventional commit format
+
+## Folder Structure (AGENTS.md lines 9-47):
+- **Plan Structure**: `docs/plans/{PlanName}/` - this is the structure you create during planning
+- **Master Plan**: Must contain Broad_View, Checklist, Techstack, Requirements, Codemaps
+- **Task Plans**: Create phase-specific implementation steps
+- **Reports**: Initialize Master_Log during planning
+- **Restricted**: `devplans/` - only touch with explicit permission
+
+## Checklist Syntax (AGENTS.md lines 59-67):
+When creating checklist, use proper syntax:
+- `[ ]` Task pending
+- `[x]` Task complete (Verified via test/run)
+- `[~]` Task in progress
+- `[!]` CRITICAL ISSUE (Requires human or Architect intervention)
+- `[?]` BLOCKER (Cannot proceed due to missing info/dependency)
+- `[$]` GOD MODE (Do not touch/edit this file under any circumstances)
+
+## Checklist Structure (AGENTS.md lines 49-57):
+Use hierarchical structure with tree formatting:
+```
+ - [x] {Phase 1}
+ -  ├──[x] {task 1}
+ -  │   ├──[x] {subtask 1}
+ -  │   ├──[~] {subtask 2}
+ -  ├──[$] {Locked Accomplishment}
+ - [!] {Phase 2}
+```

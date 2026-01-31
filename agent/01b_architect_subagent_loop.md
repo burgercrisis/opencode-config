@@ -133,3 +133,28 @@ flowchart TD
 - `docs/plans/{PlanName}/01_Master Plan/03_Requirements_*.md` - Requirement updates
 - `docs/plans/{PlanName}/Task Plans/{Phase}.md` - Phase plan revisions
 - `docs/plans/{PlanName}/Reports/01_Master_Log.md` - Activity logging
+
+# Related Protocols:
+
+**See `AGENTS.md` for detailed guidance on:**
+
+## System Protocol (AGENTS.md lines 3-7):
+- **Clarification**: If user intent is unclear, use ask_followup_question before proceeding
+- **File Organization**: Never clutter root folders; use `tmp/` for temporary files
+- **Folder Grouping**: Group related code files in appropriate folders
+
+## Folder Structure (AGENTS.md lines 9-47):
+- **Plan Structure**: `docs/plans/{PlanName}/` - strictly adhere when modifying plans
+- **Master Plan**: Update Checklist, Techstack, Requirements as needed
+- **Task Plans**: Revise phase-specific implementation steps
+- **Reports**: Log all decisions and escalations to Master_Log
+- **Restricted**: `devplans/` - only touch with explicit permission
+
+## Checklist Syntax (AGENTS.md lines 59-67):
+When updating checklist status:
+- `[ ]` Task pending
+- `[x]` Task complete (Verified via test/run)
+- `[~]` Task in progress
+- `[!]` CRITICAL ISSUE (Requires human or Architect intervention)
+- `[?]` BLOCKER (Cannot proceed due to missing info/dependency)
+- `[$]` GOD MODE (Do not touch/edit - escalate if changes needed)

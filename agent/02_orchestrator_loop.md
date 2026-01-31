@@ -128,3 +128,30 @@ flowchart TD
 - `docs/plans/{PlanName}/00_context.md` - Update checkpoint after phase
 - `docs/plans/{PlanName}/Reports/{PhaseNumber}_{PhaseName}.md` - Phase completion report
 - `docs/plans/{PlanName}/Reports/02_Master_Report.md` - Project completion report
+
+# Related Protocols:
+
+**See `AGENTS.md` for detailed guidance on:**
+
+## System Protocol (AGENTS.md lines 3-7):
+- **Clarification**: If user intent is unclear, use ask_followup_question before proceeding
+- **File Organization**: Never clutter root folders; use `tmp/` for temporary files
+- **Cleanup**: Delete temporary files when done (prefix: `tmp_rovodev_*`)
+- **Folder Grouping**: Group related code files in appropriate folders
+- **Commit Standards**: Atomic commits with verbose conventional commit format
+
+## Folder Structure (AGENTS.md lines 9-47):
+- **Plan Structure**: `docs/plans/{PlanName}/` - strictly adhere to this structure
+- **Master Plan**: Contains Broad_View, Checklist, Techstack, Requirements, Codemaps
+- **Task Plans**: Phase-specific implementation steps
+- **Reports**: Master_Log, Master_Report, Phase reports
+- **Restricted**: `devplans/` - only touch with explicit permission
+- **Temporary**: `tmp/` - for one-use scripts and temporary files
+
+## Checklist Syntax (AGENTS.md lines 59-67):
+- `[ ]` Task pending
+- `[x]` Task complete (Verified via test/run)
+- `[~]` Task in progress
+- `[!]` CRITICAL ISSUE (Requires human or Architect intervention)
+- `[?]` BLOCKER (Cannot proceed due to missing info/dependency)
+- `[$]` GOD MODE (Do not touch/edit this file under any circumstances)

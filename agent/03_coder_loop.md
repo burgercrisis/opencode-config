@@ -127,3 +127,48 @@ flowchart TD
 - `docs/plans/{PlanName}/Reports/01_Master_Log.md` - Append start/completion events
 - `docs/plans/{PlanName}/Reports/{PhaseNumber}_{PhaseName}.md` - Phase completion report
 - `docs/plans/{PlanName}/00_context.md` - Update checkpoint after completion
+
+# Related Protocols:
+
+**See `AGENTS.md` for detailed guidance on:**
+
+## System Protocol (AGENTS.md lines 3-7):
+- **Clarification**: If user intent is unclear, use ask_followup_question before proceeding
+- **File Organization**: Never clutter root folders; use `tmp/` for temporary files
+- **Cleanup**: Delete temporary files when done (prefix: `tmp_rovodev_*`)
+- **Folder Grouping**: Group related code files in appropriate folders
+- **Commit Standards**: Atomic commits with verbose conventional commit format
+
+## Folder Structure (AGENTS.md lines 9-47):
+- **Temporary Files**: Use `tmp/` directory for temporary/test files
+- **Cleanup**: Remove tmp files before marking task complete
+- **Restricted**: `devplans/` - only touch with explicit permission
+- **Organization**: Group related code files in appropriate folders
+
+## Checklist Syntax (AGENTS.md lines 59-67):
+Update checklist with proper markers:
+- `[~]` Task in progress (mark when starting implementation)
+- `[x]` Task complete (mark after verification/tests pass)
+- `[!]` CRITICAL ISSUE (mark and escalate to Architect immediately)
+- `[?]` BLOCKER (mark and escalate - missing info/dependency)
+- `[$]` GOD MODE (never modify - escalate if changes needed)
+
+## Coding Principles (AGENTS.md lines 69-90):
+Apply to all code:
+- **DRY**: Single source of truth per concept
+- **YAGNI**: Build only what's required now
+- **Separation of Concerns**: Each module does one thing well
+- **CUPID**: Write readable, predictable, idiomatic, domain-aligned code
+- **Testing**: AAA Pattern (Setup → Action → Verify), Spec-Driven, Critical Paths First
+
+## Linters & Formatters (AGENTS.md lines 92-106):
+Run appropriate tools for language:
+- **JavaScript**: ESLint + TypeScript ESLint + Prettier
+- **Python**: PEP 8 + pytest
+- **Other languages**: See AGENTS.md for full list
+
+## Code Comment Conventions (AGENTS.md lines 108-122):
+- Comments explain **WHY**, not what
+- Document assumptions, preconditions, side effects
+- Keep concise - plain language, no jargon
+- If comment is unclear, refactor code instead
