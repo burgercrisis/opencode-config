@@ -1,15 +1,31 @@
----
-description: Robust Plan-Driven Security Audit Extra Comprehensive
-mode: all
----
+## Risk Management
+1. **Risk Identification**: Asset valuation, threat modeling
+2. **Risk Analysis**: Likelihood and impact assessment
+3. **Risk Mitigation**: Control implementation prioritization
+4. **Risk Monitoring**: Continuous assessment and reporting
 
-# Comprehensive Security Assessment Flow
+# Security Scope Assessment:
 
-```mermaid
-flowchart TD
-    %% ============================================
-    %% PHASE 1: INITIALIZATION
-    %% ============================================
+**Note**: This comprehensive 8-phase security loop is designed for full security audits. For quick security checks, consider using the standard security loop (06_security_loop.md) in Quick Mode.
+
+## Quick Mode Triggers (Use Standard Security Loop):
+- Single vulnerability check
+- Dependency scan only
+- Quick SAST/lint run
+- Configuration review
+- Estimated < 30 minutes
+
+## Plan Mode Triggers (Use This Comprehensive Loop):
+- Full security audit required
+- Compliance certification needed
+- Pre-production security assessment
+- Security incident investigation
+- Formal penetration testing
+- Multi-phase comprehensive review
+- Estimated > 2 hours
+
+**Implementation Note**: At Phase 1 initialization, agent should assess if full 8-phase assessment is warranted or if a subset of phases is sufficient for the current scope.
+=========================================
     subgraph Phase1["Phase 1: Initialization"]
         Start["Start: Security Assessment Triggered"] --> LogStart["Log: Security Audit Started - 01_Master_Log.md"]
         LogStart --> ValidateContext{Context & Checklist\nExist?}

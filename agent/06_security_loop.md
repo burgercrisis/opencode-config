@@ -1,17 +1,31 @@
----
-description: Robust Plan-Driven Security Audit Agent
-mode: all
----
-
-# Comprehensive Security Assessment Flow
-
 ```mermaid
 flowchart TD
     subgraph Initialization["Initialization"]
-        Start["Start"] --> LogStart["Log: Security started"]
+        Start["Start"] --> AssessScope{Assess Security\nScope}
+        
+        AssessScope -->|Quick Check| QuickMode["Quick Mode: Focused Scan"]
+        AssessScope -->|Comprehensive Audit| PlanMode["Plan Mode: Full Assessment"]
+        
+        QuickMode --> QuickScan["Run targeted security check"]
+        QuickScan --> QuickCheck{"Plan exists?"}
+        QuickCheck -->|Yes| QuickLog["Optionally log findings to Master_Log.md"]
+        QuickCheck -->|No| QuickEnd["Return findings"]
+        QuickLog --> QuickEnd
+        
+        PlanMode --> LogStart["Append to docs/plans/{PlanName}/Reports/01_Master_Log.md: Security started"]
         LogStart --> ValidateContext{Context\nValid?}
         ValidateContext -- No --> Escalate1["Return to Orchestrator: Plan Required"]
-        ValidateContext -- Yes --> ReadContext["Read 00_context.md & checklist"]
+        ValidateContext -- Yes --> ReadContext["Read docs/plans/{PlanName}/00_context.md & docs/plans/{PlanName}/01_Master Plan/01_Checklist.md"]
+    endity check"]
+        QuickScan --> QuickCheck{"Plan exists?"}
+        QuickCheck -->|Yes| QuickLog["Optionally log findings to Master_Log.md"]
+        QuickCheck -->|No| QuickEnd["Return findings"]
+        QuickLog --> QuickEnd
+        
+        PlanMode --> LogStart["Append to docs/plans/{PlanName}/Reports/01_Master_Log.md: Security started"]
+        LogStart --> ValidateContext{Context\nValid?}
+        ValidateContext -- No --> Escalate1["Return to Orchestrator: Plan Required"]
+        ValidateContext -- Yes --> ReadContext["Read docs/plans/{PlanName}/00_context.md & docs/plans/{PlanName}/01_Master Plan/01_Checklist.md"]
     end
     
     subgraph Planning["Preparation Phase"]
@@ -25,7 +39,7 @@ flowchart TD
         PP1 --> RiskAssess
         PP2 --> RiskAssess
         PP3 --> RiskAssess
-        RiskAssess --> SecurityReqs["Security Requirements & Controls"]
+        RiskAssess["Risk Assessment"] --> SecurityReqs["Security Requirements & Controls"]
     end
     
     subgraph Scanning["Analysis Phase"]
@@ -103,10 +117,10 @@ flowchart TD
         ResidualRisk --> AcceptRisk{"Risk\nAcceptable?"}
         AcceptRisk -- No --> Prioritize
         AcceptRisk -- Yes --> Document["Document Security Posture"]
-        Document --> MarkComplete["Mark task [x]"]
-        MarkComplete --> Report["Write Phase Report"]
-        Report --> ContextUpdate["Update 00_context.md"]
-        ContextUpdate --> LogEnd["Log: Security completed"]
+        Document --> MarkComplete["Mark task [x] in docs/plans/{PlanName}/01_Master Plan/01_Checklist.md"]
+        MarkComplete --> Report["Write docs/plans/{PlanName}/Reports/{PhaseNumber}_{PhaseName}.md"]
+        Report --> ContextUpdate["Update docs/plans/{PlanName}/00_context.md"]
+        ContextUpdate --> LogEnd["Append to docs/plans/{PlanName}/Reports/01_Master_Log.md: Security completed"]
         LogEnd --> End["Return to Orchestrator"]
     end
     
@@ -154,3 +168,32 @@ flowchart TD
 2. **Risk Analysis**: Likelihood and impact assessment
 3. **Risk Mitigation**: Control implementation prioritization
 4. **Risk Monitoring**: Continuous assessment and reporting
+
+# Security Scope Assessment:
+
+## Quick Mode Triggers (Focused Scan):
+- Single vulnerability check
+- Dependency scan only
+- Quick SAST/lint run
+- Configuration review
+- Estimated < 30 minutes
+
+## Plan Mode Triggers (Full Assessment):
+- Comprehensive security audit
+- Compliance assessment
+- Penetration testing
+- Multi-phase security review
+- Formal security documentation required
+- Estimated > 30 minutes
+
+# File Structure Integration:
+
+## Documents Read at Initialization:
+- `docs/plans/{PlanName}/00_context.md` - Source of Truth
+- `docs/plans/{PlanName}/01_Master Plan/01_Checklist.md` - Task Tracking
+
+## Documents Updated During Workflow:
+- `docs/plans/{PlanName}/01_Master Plan/01_Checklist.md` - Mark [x] on completion
+- `docs/plans/{PlanName}/Reports/01_Master_Log.md` - Append start/completion events
+- `docs/plans/{PlanName}/Reports/{PhaseNumber}_{PhaseName}.md` - Security assessment report
+- `docs/plans/{PlanName}/00_context.md` - Update checkpoint after completion
