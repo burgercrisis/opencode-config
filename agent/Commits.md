@@ -16,7 +16,6 @@ permission:
     "git status*": allow
     "git show*": allow
     "git fetch*": allow
-    "git show*": allow
     "git branch -r": allow
     "grep *": allow
 ---

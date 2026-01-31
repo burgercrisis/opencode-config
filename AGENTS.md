@@ -4,6 +4,7 @@
 - Never clutter up root folders
 - One-use scripts need to be cleaned up after
 - Group related code files in folders
+- Atomic Commits - Verbose Conventional Commits, Imperative Mood, Bullet Points, Functional, High Level + Low Level, + User Facing Summaries when applicable
 
 ### Folder Structure
 
@@ -14,24 +15,24 @@ graph TD
     subgraph root["root/"]
         subgraph docs[docs/]
             subgraph plans[plans/]
-                subgraph plan_name[Plan Name/]
+                subgraph plan_name["Plan Name/"]
                     context[00_context.md: Source of Truth]
                     subgraph masterplan["01_Master Plan/"]
                             master_plan --> broad_view[00_Broad_View.md: Project Overview]
                             master_plan --> checklist[01_Checklist.md: Task Tracking]
                             master_plan --> techstack[02_Techstack.md: Technology Choices]
-                            master_plan --> requirements[03_Requirements 1.md: Specs]
-                            master_plan --> requirements[04_Requirements 2.md: Specs]
+                            master_plan --> requirements["03_Requirements 1.md: Specs"]
+                            master_plan --> req2["04_Requirements 2.md: Specs"]
                             master_plan --> codemap[10_Master_Codemap.mmd: Architecture Diagram]
                             master_plan --> unit_codemap[11_Unit_Codemap 1.mmd: Component Details]
                     end
-                    subgraph task_plans[Task Plans/]
+                    subgraph task_plans["Task Plans/"]
                         phase1[01_Phase_1.md: Implementation Steps]
                         phase2[02_Phase_2.md: Implementation Steps]
                     end
                     subgraph Reports["Reports/"]
                         master_log[01_Master_Log.md: Activity Log]
-                        master_report[02_Master Report.md: Progress Summary]
+                        master_report["02_Master Report.md: Progress Summary"]
                         phase1_report[03_Phase_1.md: Phase Results]
 
                     end
